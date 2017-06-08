@@ -1,0 +1,29 @@
+<h1>this is in your_homes.html</h1>
+
+
+yourHomes:
+<br/>
+{%if yourHomes%}
+{% for home in yourHomes%}
+		<a href="/persons/home/{{home.id}}/">{{home}}</a>
+		<br/>
+	{% endfor%}
+{% else %}
+<p>شما هنوز خانه ای برای فروش به ما معرفی نکرده اید</p>
+{% endif %}
+if you have a house and you would like to soil it you can do it
+		<a href="{% url 'persons:add_home' %}">here</a>
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+{{user.username}}
+{{user.first_name}}
+{{user.password}}
+<hr/>
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for home in user.home_set.all %}
+    <li>{{ home.name }}</li>
+{% endfor %}
+</ul>

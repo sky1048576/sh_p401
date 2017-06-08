@@ -1,0 +1,50 @@
+
+<script>
+ function Func(Shahrestanha) {
+       var _Shahrestan = document.getElementById("Shahrestan");
+       _Shahrestan.options.length = 0;
+       if(Shahrestanha != "") {
+          var arr = Shahrestanha.split(",");
+          for(i = 0; i < arr.length; i++) {
+              if(arr[i] != "") {
+                 _Shahrestan.options[_Shahrestan.options.length]=new Option(arr[i],arr[i]);
+              }
+          }
+       }
+   }
+
+
+
+</script>
+<h1>this is in add_home.html</h1>
+
+
+<form  method="post"enctype="multipart/form-data" style="text-align: center">
+    {% csrf_token %}
+    {{ form1.as_p }}
+    {{ form2.as_p }}
+
+
+    <div dir="rtl" style="text-align: center" >
+                                        ostan :&nbsp;
+
+
+                                    <select name="s" id="Ostan" runat="server" onchange="Func(this.value)">
+                                   {% for state in iran %}
+                                        <option value=" {{ state.citis }} ">{{ state.name}}</option>
+        {% endfor %}
+
+                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shahrestan :
+                                    <select name="c" id="Shahrestan" runat="server" >
+                                    </select>
+
+&nbsp;
+        &nbsp;</div>
+    <input type="submit" value="Submit" />
+</form>
+
+{{user.username}}
+<form id="form1" name="FRM" runat="server" >
+
+
+    </form>

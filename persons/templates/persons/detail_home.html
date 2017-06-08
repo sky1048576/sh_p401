@@ -1,0 +1,52 @@
+<h1>this is in detail_home</h1>
+<hr/>
+{{home.id}}
+<hr/>
+{{home.name}}
+<hr/>
+<h3>آدرس</h3>
+{{home.address|linebreaks}}
+<hr/>
+
+{{home.about}}
+<hr/>
+
+{{home.member_id}}
+<hr/>
+
+{{owner}}
+<hr/>
+
+{{owner.username}}
+<hr/>
+
+{{owner.first_name}}
+<hr/>
+
+
+
+<br/>
+		<a href="/persons/users/{{owner.id}}/">{{owner.username}}</a><br/>شماره تلفن:{{owner.member.phone_number}}
+
+
+<!-- this is comment -->
+<!-- <img src="{{home.image.url}}" />
+ -->
+
+<hr>
+{{ pictures.id }}
+
+{% for p in pictures %}
+    <img src="{{p.image.url}}" />
+    <a href="/persons/image/{{p.id}}/delete/">delete this picture</a>
+    <hr>
+
+{% endfor%}
+
+<form  method="post"enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+		<a href="/persons/{{home.id}}/delete/">delete this home</a>
+		<a href="/persons/{{home.id}}/edit/">edit this home</a>
